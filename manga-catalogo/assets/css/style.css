@@ -59,6 +59,18 @@ header h1 a{
     color: var(--text-color);
 }
 
+.post_manga{
+    background-color: #ffffff;
+    color: #000000;
+    font-size: larger;
+    padding: 10px;
+    text-align: center;
+}
+
+.post_manga a{
+    color: #000000;
+}
+
 #nav_desktop{
     display: flex;
     justify-content:space-evenly;
@@ -90,26 +102,6 @@ header h1 a{
     color: var(--primary-color); 
 }
 
-form{
-    background-color: var(--text-color);
-    display: flex;
-    width: 10%;
-    height: 30px;
-}
-
-
-input{
-    border: none;
-    text-align: center;
-    color: var(--background-color);
-    height: 30px;
-}
-
-button{
-    background-color: var(--text-color);
-    border: none;
-    cursor: pointer;
-}
 
 #bar{
     display: none;
@@ -129,12 +121,6 @@ button{
         width: 40%;
     }
     
-    form{
-        justify-content: center;
-        display: flex;
-        align-items: center;
-    }
-    
 }
 
 @media (max-width: 600px){
@@ -150,12 +136,6 @@ button{
 
     #nav_desktop{
         display: none;
-    }
-
-    form{
-        position: absolute;
-        right: 40%;
-        left: 60%;
     }
 
     #bar{
@@ -202,10 +182,7 @@ button{
         text-decoration: none;
         color: var(--text-color);
     }
-    
-    form{
-        width: 1%;
-    }
+
 
 }
 
@@ -273,6 +250,45 @@ section h2{
     width: 100%;
     display: block;
     transition: transform 0.3s ease;
+}
+
+
+/* form */
+
+.create_manga{
+    background-color: #ffffff;
+    height: 40%;
+    width: 89vw;
+    color: #000000;
+    padding: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.create_manga form{
+    border: 2px solid black;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.create_manga input{
+    border: 2px solid black;
+    width: 25vw ;
+    height: 5vh;
+}
+
+.create_manga .form_btn{
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    height: 5vh;
+    width: 20vw;
+    font-family: 'Outfit', 'sans-serif';
+    font-size: large;
+    margin-bottom: 20px;
 }
 
 /* sobreposição dos icones */

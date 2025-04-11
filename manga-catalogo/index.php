@@ -19,8 +19,6 @@
         <h2 id="manga">MANGÁS</h2>
         <div id="manga_container">
 
-            <? include 'manga-icon.php'?>
-
         </div>
 
 <!-- manhwas -->
