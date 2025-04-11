@@ -100,6 +100,7 @@ header h1 a{
 #nav_desktop ul li a{ 
     text-decoration: none; 
     color: var(--primary-color); 
+    text-align: center;
 }
 
 
@@ -255,7 +256,7 @@ section h2{
 
 /* form */
 
-.create_manga{
+#create_manga{
     background-color: #ffffff;
     height: 40%;
     width: 89vw;
@@ -266,7 +267,7 @@ section h2{
     justify-content: center;
 }
 
-.create_manga form{
+#create_manga form{
     border: 2px solid black;
     padding: 20px;
     display: flex;
@@ -274,13 +275,13 @@ section h2{
     align-items: center;
 }
 
-.create_manga input{
+#create_manga input{
     border: 2px solid black;
     width: 25vw ;
     height: 5vh;
 }
 
-.create_manga .form_btn{
+#create_manga .form_btn{
     background-color: #000000;
     color: #ffffff;
     border: none;

@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <h1><a href="#home">MANGA<br>READER</a></h1>
+        <h1><a href="index.php">MANGA<br>READER</a></h1>
         
         <div id="header_desktop">
 
@@ -17,15 +17,12 @@
                 <ul>
                     <li><a href="#manga">MANGAS</a></li>
                     <li><a href="#manhwa">MANHWAS</a></li>
+                    <li><a href="form.php">ADICIONE UMA OBRA</a></li>
                 </ul>
+                
             </nav>
 
-            <form action="search">
-                <input type="search" id="search_item" placeholder="Pesquisar">
-            </form> 
         </div> 
-        
-        <button id="bar" onclick="openNav()"><i id="mobile_bar" class="fa-solid fa-bars"></i></button>
         
         
         <div id="header_mobile">
