@@ -2,8 +2,11 @@
 
     include 'header.php';
 
+
     
     session_start();
+
+    //$_SESSION = array();
 
     if (!isset($_SESSION['catalogo'])) {
         $_SESSION['catalogo'] = [];
@@ -27,7 +30,7 @@
         <div id="manga_container">
             <?php foreach($_SESSION['catalogo'] as $manga): ?>
                 <div class="manga_icon">
-                    <img src="assets/noblese-pin.png">
+                    <img src="<?php echo $manga['url_imagem'] ?>">
                     <div class="manga_desc">
                         <h3><?php echo $manga['titulo'] ?></h3>
                         <p>

@@ -14,56 +14,76 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $titulo = $_POST['titulo'] ?? '';
     $autor = $_POST['autor'] ?? '';
     $desc = $_POST['desc'] ?? '';
-    $ano = $_POST['ano'] ?? '';
+    $data = $_POST['data'] ?? '';
+    $url_imagem = $_POST['url_imagem'] ?? '';
 
     // cria um novo item e adiciona ao vetor
     $manga = [
         'titulo' => $titulo,
         'autor' => $autor,
         'desc' => $desc,
-        'ano' => $ano
+        'data' => $data,
+        'url_imagem' => $url_imagem
     ];
     $_SESSION['catalogo'][] = $manga;
 }
+
+if (!isset($_SESSION["usuario"], $_SESSION["senha"]) || $_SESSION["usuario"] !== $_SESSION['$usuarioCorreto'] || $_SESSION["senha"] !== $_SESSION['$senhaCorreta']) {
+    header("Location: erro_login.php");
+    exit;
+}
 ?>
 
-<section id="create_manga">
-    <h1>Adicionar Mangá</h1>
-        <form action="" method="post">
-            <label>Título:</label><br>
-            <input type="text" name="titulo" required><br><br>
+<main>
 
-            <label>Autor:</label><br>
-            <input type="text" name="autor" required><br><br>
+    <section id="form_section">
+        <h1>Adicionar Mangá</h1>
+            <form action="" method="post">
+                <label>Título:</label>
+                <br>
+                <input type="text" name="titulo" required>
+                <br><br>
 
-            <label>Breve descrição:</label><br>
-            <input type="text" name="desc" required><br><br>
+                <label>Autor:</label>
+                <br>
+                <input type="text" name="autor" required>
+                <br><br>
 
-            <label>Ano:</label><br>
-            <input type="number" name="ano" required><br><br>
+                <label>Breve descrição:</label>
+                <br>
+                <input type="text" name="desc" required>
+                <br><br>
 
-            <input class="form_btn" type="submit" value="Adicionar">
-        </form>
+                <label>Data de lançamento:</label>
+                <br>
+                <input type="date" name="data" required>
+                <br><br>
 
-        <h2>Catálogo Atual</h2>
-        <ul>
-            <?php foreach ($_SESSION['catalogo'] as $manga): ?>
-                <li>
-                    <p><?php echo $manga['titulo'] . "<br> " . $manga['autor'] . "<br>" . $manga['ano']
-                    ?></p>
+                <label>Url da imagem</label>
+                <BR>
+                <input type="text" name="url_imagem">
+                <br><br>
 
-                </li>
-            <?php endforeach; ?>
-        </ul>
-</section>
+                <input class="form_btn" type="submit" value="Adicionar">
+            </form>
+
+            <h2>Catálogo Atual</h2>
+            <ul>
+                <?php foreach ($_SESSION['catalogo'] as $manga): ?>
+                    <li>
+                        
+                        <p>Titulo: <?php echo $manga['titulo'] . "<br> <p>Autor: " . $manga['autor'] . "<p><br>"
+                        ?></p>
+
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+    </section>
+</main>
 
 
 <?php 
 
     include 'footer.php';
     
-    echo '<pre>';
-    print_r($_SESSION['catalogo']);
-    echo '</pre>';
-
 ?>

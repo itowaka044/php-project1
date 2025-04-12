@@ -15,9 +15,11 @@
 
             <nav id="nav_desktop">
                 <ul>
-                    <li><a href="#manga">MANGAS</a></li>
-                    <li><a href="#manhwa">MANHWAS</a></li>
+                    <li><a href="index.php">MANGAS</a></li>
+                    <br>
                     <li><a href="form.php">ADICIONE UMA OBRA</a></li>
+                    <br>
+                    <li><a href="login.php">LOGIN</a></li>
                 </ul>
                 
             </nav>
@@ -28,8 +30,7 @@
         <div id="header_mobile">
             <nav id="nav_mobile">
                 <ul>
-                    <li><a href="#home">MANGAS</a></li>
-                    <li><a href="#home">MANHWAS</a></li>
+                    <li><a href="index.php">MANGAS</a></li>
                 </ul>
             </nav>
         </div>
