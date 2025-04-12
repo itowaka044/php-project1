@@ -6,7 +6,7 @@
     
     session_start();
 
-    //$_SESSION = array();
+    $_SESSION = array();
 
     if (!isset($_SESSION['catalogo'])) {
         $_SESSION['catalogo'] = [];

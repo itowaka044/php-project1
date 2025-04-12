@@ -1,8 +1,28 @@
 <?php
 
+
+
 include 'header.php';
 
 session_start();
+
+if (!isset($_SESSION['id_atual'])) {
+    $_SESSION['id_atual'] = 0;
+}
+
+function criarItem(string $titulo,string $autor,string $desc, $data,string $url_imagem){
+    $_SESSION['id_atual']++;
+    $manga = [
+        'id' => $_SESSION['id_atual'],
+        'titulo' => $titulo,
+        'autor' => $autor,
+        'desc' => $desc,
+        'data' => $data,
+        'url_imagem' => $url_imagem
+    ];
+
+    return $manga;
+}
 
 // inicializa o vetor se ainda não existir
 if (!isset($_SESSION['catalogo'])) {
@@ -18,14 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $url_imagem = $_POST['url_imagem'] ?? '';
 
     // cria um novo item e adiciona ao vetor
-    $manga = [
-        'titulo' => $titulo,
-        'autor' => $autor,
-        'desc' => $desc,
-        'data' => $data,
-        'url_imagem' => $url_imagem
-    ];
-    $_SESSION['catalogo'][] = $manga;
+    $_SESSION['catalogo'][] = criarItem($titulo, $autor, $desc, $data, $url_imagem);
 }
 
 if (!isset($_SESSION["usuario"], $_SESSION["senha"]) || $_SESSION["usuario"] !== $_SESSION['$usuarioCorreto'] || $_SESSION["senha"] !== $_SESSION['$senhaCorreta']) {
@@ -71,7 +84,7 @@ if (!isset($_SESSION["usuario"], $_SESSION["senha"]) || $_SESSION["usuario"] !==
             <ul>
                 <?php foreach ($_SESSION['catalogo'] as $manga): ?>
                     <li>
-                        
+                        <p><?php echo $manga['id'] ?></p><br>
                         <p>Titulo: <?php echo $manga['titulo'] . "<br> <p>Autor: " . $manga['autor'] . "<p><br>"
                         ?></p>
 
