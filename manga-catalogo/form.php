@@ -1,10 +1,15 @@
 <?php
 
 
-
 include 'header.php';
 
-session_start();
+if(!isset($_SESSION)){
+    session_start();
+}
+
+if (!isset($_SESSION['catalogo'])) {
+    $_SESSION['catalogo'] = [];
+}
 
 
 //inicia o contador do array do id se não existir
@@ -48,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 
-//redireciona para a pagina erro_login, caso os inputs nao batam com o correto
+//redireciona para a pagina erro_login, caso nao tenha logado ainda
 if (!isset($_SESSION["usuario"], $_SESSION["senha"]) || $_SESSION["usuario"] !== $_SESSION['$usuarioCorreto'] || $_SESSION["senha"] !== $_SESSION['$senhaCorreta']) {
     header("Location: erro_login.php");
     die;

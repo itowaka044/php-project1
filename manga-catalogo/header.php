@@ -13,6 +13,8 @@
         
         <div id="header_desktop">
 
+        <?php include 'filtrar.php' ?>
+
             <nav id="nav_desktop">
                 <ul>
                     <li><a href="index.php">MANGAS</a></li>
@@ -21,6 +23,7 @@
                     <br>
                     <li><a href="login.php">LOGIN</a></li>
                 </ul>
+
                 
             </nav>
 

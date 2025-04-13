@@ -4,8 +4,9 @@ include 'header.php';
 
 <?php
 
-
-session_start();
+if(!isset($_SESSION)){
+    session_start();
+}
 
 //foreach pra atribuir o manga correto para a variavel $manga(esta variavel vai ser utilizada na pagina inteira)
 foreach($_SESSION['catalogo'] as $mangaAux){
