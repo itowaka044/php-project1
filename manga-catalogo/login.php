@@ -6,6 +6,7 @@ session_start();
 
 $_SESSION['$usuarioCorreto'] = "admin";
 $_SESSION['$senhaCorreta'] = "12345";
+$_SESSION['$hashSenha'] = password_hash($_SESSION['$senhaCorreta'], PASSWORD_DEFAULT);
 
 
 //verifica se o post foi enviado e confere se esta batendo com os dados corretos
@@ -22,12 +23,14 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
     }
 }
 
-
-//se o usuario ja estiver logado vai para a aba ja_logou
-if (isset($_SESSION["usuario"], $_SESSION["senha"]) && $_SESSION["usuario"] === $_SESSION['$usuarioCorreto'] && $_SESSION["senha"] === $_SESSION['$senhaCorreta']) {
+//se o usuario ja estiver logado vai para a aba
+if (isset($_SESSION["usuario"], $_SESSION["senha"]) && $_SESSION["usuario"] === $_SESSION['$usuarioCorreto'] && password_verify($_SESSION["senha"], $_SESSION['$hashSenha'])) {
     header("Location: ja_logou.php");
-    exit;
+    die;
 }
+
+
+
         
 ?>
 <main>
