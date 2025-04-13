@@ -6,7 +6,9 @@
     
     session_start();
 
-    $_SESSION = array();
+
+    //para resetar o site, tire o comentario da linha abaixo e recarregue a pagina
+    //$_SESSION = array();
 
     //inicia o array catalogo se nao exisitr
     if (!isset($_SESSION['catalogo'])) {
@@ -39,11 +41,11 @@
                         <p>
                             <?php echo $manga['desc'] ?>
                         </p>
-                        <a href="reader-berserk.html">Leia aqui</a>
+                        <a href="detalhes.php?id=<?php echo $manga['id'] ?>">Saiba mais</a>
 
                     </div>
                 </div>
-            <?php endforeach?>   
+            <?php endforeach; ?>   
         </div>
     </section>
     </main>
