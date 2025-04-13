@@ -282,6 +282,12 @@ section h2{
     height: 5vh;
 }
 
+#form_section select{
+    border: 2px solid black;
+    width: 25vw ;
+    height: 5vh;
+}
+
 #form_section .form_btn{
     background-color: #000000;
     color: #ffffff;
@@ -424,3 +430,32 @@ footer img{
     text-align: center;
     color: black;
 }
+
+
+#detalhes_sec{
+    height: auto;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.det_esquerda{
+    height: auto;
+    width: 50%;
+    background-color: white;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.det_direita{
+    height: auto;
+    width: 50%;
+    background-color: black;
+    color: white;
+    padding: 20px;
+}
+
+
