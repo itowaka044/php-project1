@@ -3,8 +3,12 @@
 include 'header.php';
 
 session_start();
+
 $_SESSION['$usuarioCorreto'] = "admin";
 $_SESSION['$senhaCorreta'] = "12345";
+
+
+//verifica se o post foi enviado e confere se esta batendo com os dados corretos
 if($_SERVER['REQUEST_METHOD'] === "POST"){
     $usuario = $_POST["usuario"] ?? "";
     $senha = $_POST["senha"] ?? "";
@@ -17,6 +21,9 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
         echo "Senha e/ou Usuario incorreto(s).";
     }
 }
+
+
+//se o usuario ja estiver logado vai para a aba ja_logou
 if (isset($_SESSION["usuario"], $_SESSION["senha"]) && $_SESSION["usuario"] === $_SESSION['$usuarioCorreto'] && $_SESSION["senha"] === $_SESSION['$senhaCorreta']) {
     header("Location: ja_logou.php");
     exit;

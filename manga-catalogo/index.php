@@ -8,6 +8,7 @@
 
     $_SESSION = array();
 
+    //inicia o array catalogo se nao exisitr
     if (!isset($_SESSION['catalogo'])) {
         $_SESSION['catalogo'] = [];
     } 
@@ -28,7 +29,9 @@
     <section>
         <h2 id="manga">MANGÁS</h2>
         <div id="manga_container">
-            <?php foreach($_SESSION['catalogo'] as $manga): ?>
+            <?php
+            //foreach para mostrar as infos do array catalogo
+            foreach($_SESSION['catalogo'] as $manga): ?>
                 <div class="manga_icon">
                     <img src="<?php echo $manga['url_imagem'] ?>">
                     <div class="manga_desc">

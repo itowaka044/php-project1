@@ -3,7 +3,7 @@
             <div class="footer_links">
                 <p><a href="index.php">Mangas</a></p>
             </div>
-            <a href="https://github.com/itowaka044"><img src="assets/github-mark.png" alt="github"></a>
+            <a href="https://github.com/itowaka044/php-project1"><img src="assets/github-mark.png" alt="github"></a>
     </footer>
 
 </body>
