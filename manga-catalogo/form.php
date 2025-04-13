@@ -7,14 +7,14 @@ include 'header.php';
 session_start();
 
 
-//inicia o array do id se não existir
+//inicia o contador do array do id se não existir
 if (!isset($_SESSION['id_atual'])) {
     $_SESSION['id_atual'] = 0;
 }
 
 
 //funcao para criar um array com os parametros
-function criarItem(string $titulo,string $autor,string $desc, $data,string $url_imagem){
+function criarItem(string $titulo,string $autor,string $desc, $data,string $url_imagem, string $genero){
     $_SESSION['id_atual']++;
     $manga = [
         'id' => $_SESSION['id_atual'],
@@ -22,6 +22,7 @@ function criarItem(string $titulo,string $autor,string $desc, $data,string $url_
         'autor' => $autor,
         'desc' => $desc,
         'data' => $data,
+        'genero' => $genero,
         'url_imagem' => $url_imagem
     ];
 
@@ -38,18 +39,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $titulo = $_POST['titulo'] ?? '';
     $autor = $_POST['autor'] ?? '';
     $desc = $_POST['desc'] ?? '';
+    $genero = $_POST['genero'] ?? '';
     $data = $_POST['data'] ?? '';
     $url_imagem = $_POST['url_imagem'] ?? '';
 
     // cria o item com os parametros atribuidos do $_post
-    $_SESSION['catalogo'][] = criarItem($titulo, $autor, $desc, $data, $url_imagem);
+    $_SESSION['catalogo'][] = criarItem($titulo, $autor, $desc, $data, $url_imagem, $genero);
 }
 
 
 //redireciona para a pagina erro_login, caso os inputs nao batam com o correto
 if (!isset($_SESSION["usuario"], $_SESSION["senha"]) || $_SESSION["usuario"] !== $_SESSION['$usuarioCorreto'] || $_SESSION["senha"] !== $_SESSION['$senhaCorreta']) {
     header("Location: erro_login.php");
-    exit;
+    die;
 }
 ?>
 
@@ -73,6 +75,17 @@ if (!isset($_SESSION["usuario"], $_SESSION["senha"]) || $_SESSION["usuario"] !==
                 <input type="text" name="desc" required>
                 <br><br>
 
+                <label>Genero:</label>
+                <br>
+                <select name="genero" id="genero_sel">
+                    <option value="">selecione um genero</option>
+                    <option value="shounen">shounen</option>
+                    <option value="seinen">seinen</option>
+                    <option value="shoujo">shoujo</option>
+                </select>
+
+                <br><br>
+
                 <label>Data de lançamento:</label>
                 <br>
                 <input type="date" name="data" required>
@@ -94,7 +107,7 @@ if (!isset($_SESSION["usuario"], $_SESSION["senha"]) || $_SESSION["usuario"] !==
                 // foreachzin puxando do vetor catalogo pra mostrar as infos
                 foreach ($_SESSION['catalogo'] as $manga): ?>
                     <li>
-                        <p><?php echo $manga['id'] ?></p><br>
+                        <p><?php echo $manga['id'] ?></p>
                         <p>Titulo: <?php echo $manga['titulo'] . "<br> <p>Autor: " . $manga['autor'] . "<p><br>"
                         ?></p>
 
